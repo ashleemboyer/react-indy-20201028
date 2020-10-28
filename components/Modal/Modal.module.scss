@@ -1,0 +1,47 @@
+.Modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 24px;
+  background-color: rgba(black, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  &--card {
+    width: 100%;
+    max-width: 700px;
+    padding: 24px;
+    margin-top: 48px;
+    border-radius: 24px;
+    background-color: white;
+  }
+
+  &--title {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    button {
+      font-size: 1.2rem;
+      border: none;
+      background-color: transparent;
+      color: black;
+    }
+  }
+
+  &--body {
+    padding-top: 24px;
+  }
+
+  &--footer {
+    text-align: right;
+    padding-top: 24px;
+  }
+}
