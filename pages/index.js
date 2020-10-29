@@ -1,14 +1,20 @@
-import { useState } from 'react';
-import { Modal } from '@components';
+import { useState, createRef } from 'react';
+import { AboutForm, Modal } from '@components';
 
 const HomePage = () => {
+  const buttonRef = createRef();
   const [showModal, setShowModal] = useState(false);
+
+  const closeModal = () => {
+    setShowModal(false);
+    buttonRef.current.focus();
+  };
 
   const modalActions = [
     {
       label: 'Ok!',
       onAction: () => {
-        setShowModal(false);
+        closeModal();
       },
     },
   ];
@@ -17,6 +23,7 @@ const HomePage = () => {
     <>
       <h1>Hello, HomePage!</h1>
       <button
+        ref={buttonRef}
         onClick={() => {
           setShowModal(true);
         }}
@@ -27,11 +34,11 @@ const HomePage = () => {
         <Modal
           title="I'm a modal title!"
           onClose={() => {
-            setShowModal(false);
+            closeModal();
           }}
           actions={modalActions}
         >
-          <p>I'm in the modal body.</p>
+          <AboutForm />
         </Modal>
       )}
     </>
